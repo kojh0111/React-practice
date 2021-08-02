@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Control from "./components/Control";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Read from "./components/Read";
@@ -23,7 +24,9 @@ function App() {
     setMode("READ")
     setId(id)
   }
-
+  const onChangeModeControl = _mode => {
+    setMode(_mode);
+  }
   if (mode === "WELCOME") {
     title = "Welcome"
     desc = "React"
@@ -34,7 +37,7 @@ function App() {
         desc = data[i].desc
       }
     }
-  }
+  } else if (mode === 'CREATE') { } else if (mode === 'UPDATE') { }
 
   return (
     <div className="App">
@@ -42,6 +45,7 @@ function App() {
       <Header onChangeMode={onChangeModeHeader} />
       <Nav onChangeMode={onChangeModeNav} data={data} />
       <Read title={title} desc={desc} />
+      <Control onChangeMode={onChangeModeControl} />
     </div>
   );
 }
