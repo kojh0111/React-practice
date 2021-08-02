@@ -1,9 +1,14 @@
 const Nav = (props) => {
-    const { data } = props
+    const { onChangeMode, data } = props
+    const onClickHandler = e => {
+        console.log(e.target.text)
+        e.preventDefault();
+        props.onChangeMode();
+    }
     const lis = []
-    data.map(d => {
-        lis.push(<li><a href="1.html">{d.title}</a></li>)
-    })
+    data.map(d => (
+        lis.push(<li key={d._id}><a href={d._id + ".html"} onClick={onClickHandler}>{d.title}</a></li>)
+    ))
     return (
         <nav>
             <ul>

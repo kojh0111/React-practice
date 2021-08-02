@@ -1,9 +1,9 @@
 const Read = (props) => {
-    const { title, dsc } = props
+    const { title, desc } = props
     return (
         <article>
             <h2>{title}</h2>
-            Hello, {dsc}
+            Hello, {desc}
         </article>
     )
 }
