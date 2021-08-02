@@ -4,16 +4,32 @@ import Nav from "./components/Nav";
 import Read from "./components/Read";
 
 function App() {
+  const [mode, setMode] = useState("Welcome")
+  const [id, setId] = useState(null)
   const data = [
     { _id: 1, title: 'HTML', desc: 'HTML is ...' },
     { _id: 2, title: 'CSS', desc: 'CSS is ...' },
     { _id: 3, title: 'JS', desc: 'JS is ...' }
   ]
-  const title = "Welcome"
-  const desc = "React"
+  let title = "Welcome"
+  let desc = "React"
 
-  const onChangeModeHeader = () => { }
-  const onChangeModeNav = () => { }
+
+  const onChangeModeHeader = () => {
+    setMode('WELCOME')
+  }
+  const onChangeModeNav = _id => {
+    setMode("READ")
+    setId(_id)
+  }
+
+  if (mode === "WELCOME") {
+    title = "Welcome"
+    desc = "React"
+  } else if (mode === "READ") {
+    title = "Read"
+    desc = "Yeah~!!"
+  }
 
   return (
     <div className="App">
