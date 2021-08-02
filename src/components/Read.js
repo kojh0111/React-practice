@@ -1,5 +1,4 @@
-const Read = (props) => {
-    const { title, desc } = props
+const Read = ({ title, desc }) => {
     return (
         <article>
             <h2>{title}</h2>

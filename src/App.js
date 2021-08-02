@@ -11,6 +11,7 @@ function App() {
     { _id: 2, title: 'CSS', desc: 'CSS is ...' },
     { _id: 3, title: 'JS', desc: 'JS is ...' }
   ]
+
   let title = "Welcome"
   let desc = "React"
 
@@ -18,17 +19,21 @@ function App() {
   const onChangeModeHeader = () => {
     setMode('WELCOME')
   }
-  const onChangeModeNav = _id => {
+  const onChangeModeNav = id => {
     setMode("READ")
-    setId(_id)
+    setId(id)
   }
 
   if (mode === "WELCOME") {
     title = "Welcome"
     desc = "React"
   } else if (mode === "READ") {
-    title = "Read"
-    desc = "Yeah~!!"
+    for (let i = 0; i < data.length; i++) {
+      if (data[i]._id === id) {
+        title = data[i].title
+        desc = data[i].desc
+      }
+    }
   }
 
   return (

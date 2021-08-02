@@ -1,7 +1,7 @@
-const Header = (props) => {
+const Header = ({ onChangeMode }) => {
     const onClickHandler = e => {
         e.preventDefault();
-        props.onChangeMode();
+        onChangeMode();
     }
     return (
         <header>
