@@ -7,7 +7,10 @@ function App() {
     <div className="App">
       <h1>Hello World</h1>
       <Header />
-      <Nav />
+      <Nav data={[
+        { id: 1, title: 'HTML', desc: 'HTML is ...' },
+        { id: 2, title: 'CSS', desc: 'CSS is ...' }
+      ]} />
       <Read title="Welcome" dsc="React" />
     </div>
   );

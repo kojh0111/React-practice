@@ -1,16 +1,13 @@
-const Nav = () => {
+const Nav = (props) => {
+    const { data } = props
+    const lis = []
+    data.map(d => {
+        lis.push(<li><a href="1.html">{d.title}</a></li>)
+    })
     return (
         <nav>
             <ul>
-                <li>
-                    <a href="1.html">HTML</a>
-                </li>
-                <li>
-                    <a href="2.html">CSS</a>
-                </li>
-                <li>
-                    <a href="3.html">JS</a>
-                </li>
+                {lis}
             </ul>
         </nav>
     )
