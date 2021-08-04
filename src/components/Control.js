@@ -6,8 +6,7 @@ const Control = (props) => {
     return (
         <div>
             <a href="/create" data-mode="CREATE" onClick={clickHandler}>create</a> |
-            <a href="/update" data-mode="UPDATE" onClick={clickHandler}>update</a> |
-            <input type="button" value="delete" data-mode="DELETE" onClick={clickHandler}></input>
+            <a href="/update" data-mode="UPDATE" onClick={clickHandler}>update</a>
         </div>
     )
 }

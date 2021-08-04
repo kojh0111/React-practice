@@ -50,8 +50,6 @@ function App() {
         desc = data[i].desc
       }
     }
-  } else if (mode === "DELETE") {
-
   }
 
   return (
@@ -77,7 +75,7 @@ function App() {
           <input type="button" value="취소" onClick={() => setIsCUD(false)} />
         </> :
         <>
-          <Update data={data} id={id} onUpdateSubmit={({ title, desc }) => {
+          <Update data={data} setData={setData} id={id} onUpdateSubmit={({ title, desc }) => {
             setData((cur) => {
               let newData = [...cur]
               for (let i = 0; i < newData.length; i++) {

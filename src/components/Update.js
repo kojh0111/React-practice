@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-const Update = ({ data, id, onUpdateSubmit }) => {
+const Update = ({ data, id, onUpdateSubmit, setData }) => {
     const handleSubmit = e => {
         e.preventDefault()
         let title = e.target.title.value
@@ -10,6 +10,20 @@ const Update = ({ data, id, onUpdateSubmit }) => {
             desc: desc
         })
     }
+    const clickHandler = (e) => {
+        e.preventDefault()
+        console.log(id)
+        setData((cur) => {
+            let newData = []
+            for (let i = 0; i < data.length; i++) {
+                if (data[i]._id !== id) {
+                    newData.push(data[i])
+                }
+            }
+            return newData
+        })
+    }
+
     let select_title
     let select_desc
     for (let i = 0; i < data.length; i++) {
@@ -38,6 +52,7 @@ const Update = ({ data, id, onUpdateSubmit }) => {
                     value={desc}></textarea>
                 </p>
                 <p><input type="submit"></input></p>
+                <input type="button" value="삭제" data-mode="DELETE" onClick={clickHandler}></input>
             </form>
         </div>)
 }
