@@ -1,13 +1,13 @@
-const Control = ({ onChangeMode }) => {
+const Control = (props) => {
     const clickHandler = e => {
         e.preventDefault()
-        onChangeMode()
+        props.onChangeMode(e.target.dataset.mode)
     }
     return (
         <div>
-            <a href="/create" data-mode="create" onClick={clickHandler}>create</a> |
-            <a href="/update" data-mode="update" onClick={clickHandler}>update</a> |
-            <input type="button" value="delete" data-mode="delete" onClick={clickHandler}></input>
+            <a href="/create" data-mode="CREATE" onClick={clickHandler}>create</a> |
+            <a href="/update" data-mode="UPDATE" onClick={clickHandler}>update</a> |
+            <input type="button" value="delete" data-mode="DELETE" onClick={clickHandler}></input>
         </div>
     )
 }

@@ -1,21 +1,23 @@
 import { useState } from "react";
 import Control from "./components/Control";
+import Create from "./components/Create";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Read from "./components/Read";
 
 function App() {
   const [mode, setMode] = useState("Welcome")
+  const [nextId, setNextId] = useState(4)
   const [id, setId] = useState(null)
-  const data = [
+  const [isCUD, setIsCUD] = useState(false)
+  const [data, setData] = useState([
     { _id: 1, title: 'HTML', desc: 'HTML is ...' },
     { _id: 2, title: 'CSS', desc: 'CSS is ...' },
     { _id: 3, title: 'JS', desc: 'JS is ...' }
-  ]
+  ])
 
   let title = "Welcome"
   let desc = "React"
-
 
   const onChangeModeHeader = () => {
     setMode('WELCOME')
@@ -24,8 +26,9 @@ function App() {
     setMode("READ")
     setId(id)
   }
-  const onChangeModeControl = _mode => {
-    setMode(_mode);
+  const onChangeModeControl = (_mode) => {
+    console.log(_mode)
+    setMode(_mode)
   }
   if (mode === "WELCOME") {
     title = "Welcome"
@@ -37,7 +40,7 @@ function App() {
         desc = data[i].desc
       }
     }
-  } else if (mode === 'CREATE') { } else if (mode === 'UPDATE') { }
+  } else if (mode === 'CREATE') { } else if (mode === 'UPDATE') { } else if (mode === "DELETE") { }
 
   return (
     <div className="App">
@@ -45,7 +48,44 @@ function App() {
       <Header onChangeMode={onChangeModeHeader} />
       <Nav onChangeMode={onChangeModeNav} data={data} />
       <Read title={title} desc={desc} />
-      <Control onChangeMode={onChangeModeControl} />
+      {!isCUD ? <Control onChangeMode={(_mode) => {
+        onChangeModeControl(_mode)
+        setIsCUD(true)
+      }} /> : (
+        <Create onCreateSubmit={({ title, desc }) => {
+          setData((cur) => {
+            let newData = [...cur]
+            newData.push({ "_id": nextId, "title": title, "desc": desc })
+            return newData
+          })
+          setNextId(nextId + 1)
+          setIsCUD(false)
+        }} >
+
+          <input type="button" value="취소" onClick={() => setIsCUD(false)} />
+        </Create>
+
+        // <div>
+        //   <form onSubmit={e => {
+        //     e.preventDefault()
+        //     let title = e.target.title.value
+        //     let desc = e.target.desc.value
+        //     setData((cur) => {
+        //       let newData = [...cur]
+        //       newData.push({ "_id": nextId, "title": title, "desc": desc })
+        //       return newData
+        //     })
+        //     setNextId(nextId + 1)
+        //     setIsCUD(false)
+        //   }}>
+        //     <h2>Create</h2>
+        //     <p><input type="text" placeholder="title" name="title"></input></p>
+        //     <p><textarea placeholder="description" name="desc"></textarea></p>
+        //     <p><input type="submit"></input></p>
+        //   </form>
+        //   <input type="button" value="취소" onClick={() => setIsCUD(false)} />
+        // </div>
+      )}
     </div>
   );
 }
