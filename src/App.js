@@ -4,6 +4,7 @@ import Create from "./components/Create";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Read from "./components/Read";
+import Update from "./components/Update";
 
 function App() {
   const [mode, setMode] = useState("Welcome")
@@ -40,7 +41,18 @@ function App() {
         desc = data[i].desc
       }
     }
-  } else if (mode === 'CREATE') { } else if (mode === 'UPDATE') { } else if (mode === "DELETE") { }
+  } else if (mode === 'CREATE') {
+
+  } else if (mode === 'UPDATE') {
+    for (let i = 0; i < data.length; i++) {
+      if (data[i]._id === id) {
+        title = data[i].title
+        desc = data[i].desc
+      }
+    }
+  } else if (mode === "DELETE") {
+
+  }
 
   return (
     <div className="App">
@@ -51,20 +63,38 @@ function App() {
       {!isCUD ? <Control onChangeMode={(_mode) => {
         onChangeModeControl(_mode)
         setIsCUD(true)
-      }} /> : (
-        <Create onCreateSubmit={({ title, desc }) => {
-          setData((cur) => {
-            let newData = [...cur]
-            newData.push({ "_id": nextId, "title": title, "desc": desc })
-            return newData
-          })
-          setNextId(nextId + 1)
-          setIsCUD(false)
-        }} >
-
+      }} /> : (mode === "CREATE" ?
+        <>
+          <Create onCreateSubmit={({ title, desc }) => {
+            setData((cur) => {
+              let newData = [...cur]
+              newData.push({ "_id": nextId, "title": title, "desc": desc })
+              return newData
+            })
+            setNextId(nextId + 1)
+            setIsCUD(false)
+          }} />
           <input type="button" value="취소" onClick={() => setIsCUD(false)} />
-        </Create>
-
+        </> :
+        <>
+          <Update data={data} id={id} onUpdateSubmit={({ title, desc }) => {
+            setData((cur) => {
+              let newData = [...cur]
+              for (let i = 0; i < newData.length; i++) {
+                if (newData[i]._id === id) {
+                  newData[i] = {
+                    _id: newData[i]._id,
+                    title: title,
+                    desc: desc
+                  }
+                }
+              }
+              return newData
+            })
+            setIsCUD(false)
+          }} />
+          <input type="button" value="취소" onClick={() => setIsCUD(false)} />
+        </>
         // <div>
         //   <form onSubmit={e => {
         //     e.preventDefault()
