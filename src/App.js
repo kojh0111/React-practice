@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CafeCalculator from "./components/CafeCalculator";
 import Control from "./components/Control";
 import Create from "./components/Create";
 import Header from "./components/Header";
@@ -114,6 +115,7 @@ function App() {
         //   <input type="button" value="취소" onClick={() => setIsCUD(false)} />
         // </div>
       )}
+      <CafeCalculator />
     </div>
   );
 }
