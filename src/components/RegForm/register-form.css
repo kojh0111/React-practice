@@ -1,0 +1,83 @@
+.regFormCSS {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 270px;
+  height: 400px;
+  border-radius: 20px;
+  border: #495057 solid 2px;
+  padding: 0 20px;
+  margin: 20px 10px;
+}
+
+.regFormCSS > fieldset {
+  border: none;
+  padding: 12px 0;
+  height: 80px;
+}
+
+.regFormCSS fieldset:not(:first-of-type) {
+  border-bottom: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.regFormCSS .form-label {
+  display: block;
+  padding-bottom: 8px;
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.regFormCSS .form-input {
+  display: block;
+  width: 254px;
+  padding: 4px;
+  border: 2px solid #dee2e6;
+  border-radius: 3px;
+}
+
+.regFormCSS .input-invalid {
+  border: 2px solid #ff6b6b;
+}
+
+.regFormCSS .input-valid {
+  border: 2px solid #51cf66;
+}
+
+.regFormCSS .text-error {
+  color: #ff6b6b;
+}
+
+.regFormCSS .form-error {
+  font-size: 0.8rem;
+  min-height: 20px;
+  margin-top: 4px;
+}
+
+.regFormCSS .debug {
+  font-size: 0.75rem;
+}
+
+.regFormCSS > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.regFormCSS button {
+  border: none;
+  width: 48%;
+  padding: 4px;
+  color: white;
+  font-weight: 700;
+  margin: 10px 2px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.regFormCSS button:first-child {
+  background: #adb5bd;
+}
+
+.regFormCSS button:nth-child(2) {
+  background: #37b24d;
+}

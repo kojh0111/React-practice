@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import MathProblem from "./components/MathProblem/MathProblem";
 import Nav from "./components/Nav";
 import Read from "./components/Read";
+import RegForm from "./components/RegForm/RegForm";
 import Update from "./components/Update";
 
 function App() {
@@ -118,6 +119,7 @@ function App() {
       )}
       <CafeCalculator />
       <MathProblem />
+      <RegForm />
     </div>
   );
 }
