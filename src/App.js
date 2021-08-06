@@ -3,6 +3,7 @@ import CafeCalculator from "./components/CafeCalculator";
 import Control from "./components/Control";
 import Create from "./components/Create";
 import Header from "./components/Header";
+import MathProblem from "./components/MathProblem/MathProblem";
 import Nav from "./components/Nav";
 import Read from "./components/Read";
 import Update from "./components/Update";
@@ -116,6 +117,7 @@ function App() {
         // </div>
       )}
       <CafeCalculator />
+      <MathProblem />
     </div>
   );
 }

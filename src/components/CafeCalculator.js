@@ -25,7 +25,7 @@ function CafeCalculator() {
             return 50000 - rest
         } else {
             return "예산초과"
-        }
+        } // eslint-disable-next-line
     }, [rest])
     // const totalSum = useCallback(() => {
     //   return 50000-rest
@@ -39,7 +39,7 @@ function CafeCalculator() {
     // }) => Math.max 와 같은 효과
 
     return (
-        <div>
+        <div className="mathProblem">
             <p>
                 ₩4100 아메리카노: {countA}&nbsp;
                 <button onClick={() => setCountA(countA + 1)}>추가</button>
