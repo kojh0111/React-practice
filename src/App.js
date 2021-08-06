@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CafeCalculator from "./components/CafeCalculator";
+import CafeCalculator from "./components/CafeCalculator/CafeCalculator";
 import Control from "./components/Control";
 import Create from "./components/Create";
 import Header from "./components/Header";
