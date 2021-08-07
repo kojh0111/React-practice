@@ -1,5 +1,8 @@
 import { useState } from "react";
 import CafeCalculator from "./components/CafeCalculator/CafeCalculator";
+import ChangeObject from "./components/ChangeObject/ChangeObject";
+import PMap from "./components/ChangeObject/PMap";
+import RTcal from "./components/ChangeObject/RTcal";
 import Control from "./components/Control";
 import Create from "./components/Create";
 import Header from "./components/Header";
@@ -119,7 +122,10 @@ function App() {
       )}
       <CafeCalculator />
       <MathProblem />
+      {/* <PMap data={["1", "2", "3"]} /> */}
       <RegForm />
+      <ChangeObject />
+      <RTcal />
     </div>
   );
 }

@@ -1,0 +1,57 @@
+.ChangeObject {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 400px;
+  height: 160px;
+  border-radius: 20px;
+  border: #495057 solid 2px;
+  padding: 20px 20px;
+  margin: 20px 10px;
+}
+
+.ChangeObject div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ChangeObject input {
+  width: 100px;
+}
+
+.ChangeObject p {
+  display: block;
+  text-align: center;
+  margin-block: 0;
+}
+
+.RTcal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 400px;
+  height: 160px;
+  border-radius: 20px;
+  border: #495057 solid 2px;
+  padding: 20px 20px;
+  margin: 20px 10px;
+}
+
+.RTcal div {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.RTcal input {
+  width: 100px;
+  padding: 10px;
+  border: none;
+  font-size: 24px;
+  border-bottom: #495057 solid 2px;
+}
+
+.RTcal p {
+  display: block;
+  text-align: center;
+  margin-block: 0;
+}
