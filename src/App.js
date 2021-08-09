@@ -1,13 +1,15 @@
 import { useState } from "react";
 import CafeCalculator from "./components/CafeCalculator/CafeCalculator";
 import ChangeObject from "./components/ChangeObject/ChangeObject";
-import PMap from "./components/ChangeObject/PMap";
+// import PMap from "./components/ChangeObject/PMap";
 import RTcal from "./components/ChangeObject/RTcal";
 import Control from "./components/Control";
 import Create from "./components/Create";
 import Header from "./components/Header";
 import MathProblem from "./components/MathProblem/MathProblem";
+import MovieList from "./components/MovieList/MovieList";
 import Nav from "./components/Nav";
+import New from "./components/New/New";
 import Read from "./components/Read";
 import RegForm from "./components/RegForm/RegForm";
 import Update from "./components/Update";
@@ -126,6 +128,8 @@ function App() {
       <RegForm />
       <ChangeObject />
       <RTcal />
+      <New />
+      <MovieList />
     </div>
   );
 }
